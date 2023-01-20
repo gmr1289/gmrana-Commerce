@@ -19,9 +19,7 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getEditProduct = (req, res, next) => {
   const edit = req.query.edit;
-  if (!edit) {
-    res.redirect("/");
-  }
+  if (!edit) return res.redirect("/");
   res.render("admin/edit-product", {
     pageTitle: "Edit Product",
     path: "/admin/edit-product",

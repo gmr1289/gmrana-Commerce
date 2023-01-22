@@ -17,11 +17,9 @@ module.exports = class Cart {
       }
       const index = cart.products.findIndex((prod) => prod.id === id);
       const product = cart.products[index];
-      console.log(cart);
       if (product) cart.products[index].qty++;
       else cart.products = [...cart.products, { id: id, qty: 1 }];
       cart.totalPrice += +productPrice;
-      console.log(cart);
       fs.writeFile(p, JSON.stringify(cart), (err) => console.log(err));
     });
   }
